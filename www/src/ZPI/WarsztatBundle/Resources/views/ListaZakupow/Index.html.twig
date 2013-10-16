@@ -1,0 +1,14 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Listy zakupó{% endblock %}
+
+{% block content %}
+<h1>Listy zakupów</h1>
+
+<table>
+{% for lista in listy %}
+    {% include 'WarsztatBundle:ListaZakupow:Row.html.twig' %}
+{% endfor %}
+</table>
+
+{% endblock %}

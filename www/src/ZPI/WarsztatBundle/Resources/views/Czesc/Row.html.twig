@@ -1,0 +1,10 @@
+<tr>
+    <td>{{ czesc.id }}</td>
+    <td>{{ czesc.nazwa }}</td>
+    <td>{{ czesc.liczba }}</td>
+    <td>min. {{ czesc.liczbaMin }}</td>
+    <td>śr. {{ czesc.liczbaAvg }}</td>
+    <td>{{ czesc.czasGwarancji }} dni</td>
+    <td>{% if czesc.typGwarancji is not null %}{{ czesc.typGwarancji.nazwa }}{% else %}Brak{% endif %}</td>
+    <td><a href="{{ path('czesc_details', {'id': czesc.id}) }}">(pokaż)</a></td>
+</tr>

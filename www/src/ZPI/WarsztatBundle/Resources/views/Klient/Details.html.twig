@@ -1,0 +1,22 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Klient{% endblock %}
+
+{% block content %}
+<h1>Szczegóły klienta</h1>
+
+{% for klient in klienci %}
+    <a href="{{ path('klient_edit', {'id': klient.id}) }}">(edytuj)</a>
+{% endfor %}
+
+<table>
+{% for klient in klienci %}
+    {% include 'WarsztatBundle:Klient:Row.html.twig' %}
+{% endfor %}
+</table>
+
+<h2>Zlecenia wykonane dla klienta</h2>
+
+{% include 'WarsztatBundle:Zlecenie:List.html.twig' %}
+
+{% endblock %}

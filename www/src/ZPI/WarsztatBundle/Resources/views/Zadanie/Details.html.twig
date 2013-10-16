@@ -1,0 +1,14 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Zadania{% endblock %}
+
+{% block content %}
+<h1>Lista zadań</h1>
+
+{% include 'WarsztatBundle:Zadanie:List.html.twig' %}
+
+<h2>Wykorzystanie części</h2>
+
+{% include 'WarsztatBundle:Czesc:List.html.twig' %}
+
+{% endblock %}

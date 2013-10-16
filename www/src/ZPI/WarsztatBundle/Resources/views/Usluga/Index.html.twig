@@ -1,0 +1,14 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Usluga{% endblock %}
+
+{% block content %}
+<h1>Lista usług</h1>
+
+<table>
+{% for usluga in uslugi %}
+    {% include 'WarsztatBundle:Usluga:Row.html.twig' %}
+{% endfor %}
+</table>
+
+{% endblock %}

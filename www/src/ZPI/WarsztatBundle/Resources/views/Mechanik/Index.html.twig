@@ -1,0 +1,14 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Mechanicy{% endblock %}
+
+{% block content %}
+<h1>Lista mechaników</h1>
+
+<table>
+{% for mechanik in mechanicy %}
+    {% include 'WarsztatBundle:Mechanik:Row.html.twig' %}
+{% endfor %}
+</table>
+
+{% endblock %}

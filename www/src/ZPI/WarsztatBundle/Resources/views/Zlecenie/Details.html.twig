@@ -1,0 +1,18 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Zlecenie{% endblock %}
+
+{% block content %}
+<h1>Szczegóły zlecenia</h1>
+
+{% for zlecenie in zlecenia %}
+    <a href="{{ path('zlecenie_edit', {'id': zlecenie.id}) }}">(edytuj)</a>
+{% endfor %}
+
+{% include 'WarsztatBundle:Zlecenie:List.html.twig' %}
+
+<h2>Zadania składające się na zlecenie</h2>
+
+{% include 'WarsztatBundle:Zadanie:List.html.twig' %}
+
+{% endblock %}

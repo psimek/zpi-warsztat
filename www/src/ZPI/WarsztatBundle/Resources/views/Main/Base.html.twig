@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Warsztat{% endblock %}</title>
+{% block style %}
+        <link rel="stylesheet" href="{{ asset('bundles/warsztat/css/style.css') }}" />
+{% endblock %}
+    </head>
+
+    <body>
+        <header>
+            <h1>Warsztat</h1>
+            <a href="{{ path('index') }}">Strona główna</a>
+        </header>
+        <div class="content">
+{% block content %}
+        <h1>It lives!</h1>
+
+        <nav>
+            <ul>
+                <li>Baza danych
+                    <ul>
+                        <li><a href="{{ path('klient_index') }}">Klienci</a></li>
+                        <li><a href="{{ path('pojazd_index') }}">Pojazdy</a></li>
+                    </ul>
+                </li>
+
+                <li>Historia
+                    <ul>
+                        <li><a href="{{ path('zlecenie_index') }}">Zlecenia</a></li>
+                        <li><a href="{{ path('zadanie_index') }}">Zadania</a></li>
+                        <li><a href="{{ path('gwarancja_index') }}">Gwarancje</a></li>
+                    </ul>
+                </li>
+
+                <li>Magazyn
+                    <ul>
+                        <li><a href="{{ path('czesc_index') }}">Części</a></li>
+                        <li><a href="{{ path('dostawca_index') }}">Dostawcy</a></li>
+                        <li><a href="{{ path('listazakupow_index') }}">Listy zakupów</a></li>
+                    </ul>
+                </li>
+
+                <li>Warsztat
+                    <ul>
+                        <li><a href="{{ path('usluga_index') }}">Usługi</a></li>
+                        <li><a href="{{ path('mechanik_index') }}">Mechanicy</a></li>
+                        <li><a href="{{ path('pensja_index') }}">Pensje</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+{% endblock %}
+        </div>
+    </body>
+
+</html>

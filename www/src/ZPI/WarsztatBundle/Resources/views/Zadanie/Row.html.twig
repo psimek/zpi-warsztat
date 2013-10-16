@@ -1,0 +1,6 @@
+<tr>
+    <td>{{ zadanie.id }}</td>
+    <td><b>{{ zadanie.usluga.nazwa }}</b> w <b>{{ zadanie.zlecenie.pojazd.nazwa }}</b></td>
+    <td>{{ zadanie.mechanik.imie }} {{ zadanie.mechanik.nazwisko }}</td>
+    <td><a href="{{ path('zadanie_details', {'id': zadanie.id}) }}">(pokaż)</a></td>
+</tr>

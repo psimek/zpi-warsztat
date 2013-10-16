@@ -1,0 +1,149 @@
+index:
+    pattern:  /
+    defaults: { _controller: WarsztatBundle:Main:index }
+
+# Część ########################################################################
+
+czesc_index:
+    pattern:  /czesc
+    defaults: { _controller: WarsztatBundle:Czesc:index }
+
+czesc_details:
+    pattern:  /czesc/{id}
+    defaults: { _controller: WarsztatBundle:Czesc:details }
+
+# Dostawca #####################################################################
+
+dostawca_index:
+    pattern:  /dostawca
+    defaults: { _controller: WarsztatBundle:Dostawca:index }
+
+dostawca_details:
+    pattern:  /dostawca/{id}
+    defaults: { _controller: WarsztatBundle:Dostawca:details }
+
+# Gwarancja ####################################################################
+
+gwarancja_index:
+    pattern:  /gwarancja
+    defaults: { _controller: WarsztatBundle:Gwarancja:index }
+
+gwarancja_details:
+    pattern:  /gwarancja/{id}
+    defaults: { _controller: WarsztatBundle:Gwarancja:details }
+
+# Klient #######################################################################
+
+klient_index:
+    pattern:  /klient
+    defaults: { _controller: WarsztatBundle:Klient:index }
+
+klient_details:
+    pattern:  /klient/{id}
+    defaults: { _controller: WarsztatBundle:Klient:details }
+    requirements:
+        id: \d+
+
+klient_edit:
+    pattern:  /klient/edit/{id}
+    defaults: { _controller: WarsztatBundle:Klient:edit }
+    requirements:
+        id: \d+
+
+klient_new:
+    pattern:  /klient/new
+    defaults: { _controller: WarsztatBundle:Klient:edit, id: 0 }
+
+# Lista zakupów ################################################################
+
+listazakupow_index:
+    pattern:  /lista
+    defaults: { _controller: WarsztatBundle:ListaZakupow:index }
+
+listazakupow_details:
+    pattern:  /lista/{id}
+    defaults: { _controller: WarsztatBundle:ListaZakupow:details }
+
+# Mechanik #####################################################################
+
+mechanik_index:
+    pattern:  /mechanik
+    defaults: { _controller: WarsztatBundle:Mechanik:index }
+
+mechanik_details:
+    pattern:  /mechanik/{id}
+    defaults: { _controller: WarsztatBundle:Mechanik:details }
+
+# Pensja #######################################################################
+
+pensja_index:
+    pattern:  /pensja
+    defaults: { _controller: WarsztatBundle:Pensja:index }
+
+pensja_details:
+    pattern:  /pensja/{id}
+    defaults: { _controller: WarsztatBundle:Pensja:details }
+
+# Pojazd #######################################################################
+
+pojazd_index:
+    pattern:  /pojazd
+    defaults: { _controller: WarsztatBundle:Pojazd:index }
+
+pojazd_details:
+    pattern:  /pojazd/{id}
+    defaults: { _controller: WarsztatBundle:Pojazd:details }
+    requirements:
+        id: \d+
+
+pojazd_edit:
+    pattern:  /pojazd/edit/{id}
+    defaults: { _controller: WarsztatBundle:Pojazd:edit }
+    requirements:
+        id: \d+
+
+pojazd_new:
+    pattern:  /pojazd/new
+    defaults: { _controller: WarsztatBundle:Pojazd:edit, id: 0 }
+
+# Usługa #######################################################################
+
+usluga_index:
+    pattern:  /usluga
+    defaults: { _controller: WarsztatBundle:Usluga:index }
+
+usluga_details:
+    pattern:  /usluga/{id}
+    defaults: { _controller: WarsztatBundle:Usluga:details }
+
+# Zadanie ######################################################################
+
+zadanie_index:
+    pattern:  /zadanie
+    defaults: { _controller: WarsztatBundle:Zadanie:index }
+
+zadanie_details:
+    pattern:  /zadanie/{id}
+    defaults: { _controller: WarsztatBundle:Zadanie:details }
+
+# Zlecenie #####################################################################
+
+zlecenie_index:
+    pattern:  /zlecenie
+    defaults: { _controller: WarsztatBundle:Zlecenie:index }
+
+zlecenie_details:
+    pattern:  /zlecenie/{id}
+    defaults: { _controller: WarsztatBundle:Zlecenie:details }
+    requirements:
+        id: \d+
+
+zlecenie_edit:
+    pattern:  /zlecenie/edit/{id}
+    defaults: { _controller: WarsztatBundle:Zlecenie:edit }
+    requirements:
+        id: \d+
+
+zlecenie_new:
+    pattern:  /zlecenie/new
+    defaults: { _controller: WarsztatBundle:Zlecenie:edit, id: 0 }

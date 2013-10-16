@@ -1,0 +1,7 @@
+<tr>
+    <td>{{ pensja.id }}</td>
+    <td>{{ pensja.mechanik.imie }} {{ pensja.mechanik.nazwisko }}</td>
+    <td>{{ pensja.kwota }} PLN</td>
+    <td>{{ pensja.dataOd|date('Y-m-d') }} - {{ pensja.dataDo|date('Y-m-d') }}</td>
+    <td><a href="{{ path('pensja_details', {'id': pensja.id}) }}">(pokaż)</a></td>
+</tr>

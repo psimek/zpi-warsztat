@@ -1,0 +1,14 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Część{% endblock %}
+
+{% block content %}
+<h1>Szczegóły części</h1>
+
+{% include 'WarsztatBundle:Czesc:List.html.twig' %}
+
+<h2>Dostępność</h2>
+
+{% include 'WarsztatBundle:Dostawca:List.html.twig' %}
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Pensje{% endblock %}
+
+{% block content %}
+<h1>Lista pensji</h1>
+
+<table>
+{% for pensja in pensje %}
+    {% include 'WarsztatBundle:Pensja:Row.html.twig' %}
+{% endfor %}
+</table>
+
+{% endblock %}

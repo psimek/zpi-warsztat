@@ -1,0 +1,8 @@
+<tr>
+    <td>{{ usluga.id }}</td>
+    <td>{{ usluga.nazwa }}</td>
+    <td>{{ usluga.koszt }} PLN</td>
+    <td>{{ usluga.czasGwarancji }} dni</td>
+    <td>{% if usluga.typGwarancji is not null %}{{ usluga.typGwarancji.nazwa }}{% else %}Brak{% endif %}</td>
+    <td><a href="{{ path('usluga_details', {'id': usluga.id}) }}">(pokaż)</a></td>
+</tr>

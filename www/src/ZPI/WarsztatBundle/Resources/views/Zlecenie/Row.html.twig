@@ -1,0 +1,7 @@
+<tr>
+    <td>{{ zlecenie.id }}</td>
+    <td>{{ zlecenie.pojazd.nazwa }}</td>
+    <td>{{ zlecenie.klient.imie }} {{ zlecenie.klient.nazwisko }}</td>
+    <td>zadania: {{ zlecenie.zadania|length }}</td>
+    <td><a href="{{ path('zlecenie_details', {'id': zlecenie.id}) }}">(pokaż)</a></td>
+</tr>

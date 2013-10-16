@@ -1,0 +1,6 @@
+<tr>
+    <td>{{ dostawca.id }}</td>
+    <td>{{ dostawca.nazwa }}</td>
+    <td>{{ dostawca.czesci|length }} części</td>
+    <td><a href="{{ path('dostawca_details', {'id': dostawca.id}) }}">(pokaż)</a></td>
+</tr>

@@ -1,0 +1,9 @@
+<tr>
+    <td>{{ gwarancja.id }}</td>
+    <td>{{ gwarancja.pojazd.nazwa }}</td>
+    <td>{% if gwarancja.usluga is not null %}{{ gwarancja.usluga.nazwa }}{% else %}{{ gwarancja.czesc.nazwa }}{% endif %}</td>
+    <td>{{ gwarancja.dataOd|date('Y-m-d') }}</td>
+    <td>{{ gwarancja.czas }} dni</td>
+    <td>{% if gwarancja.typGwarancji is not null %}{{ gwarancja.typGwarancji.nazwa }}{% else %}Brak{% endif %}</td>
+    <td><a href="{{ path('gwarancja_details', {'id': gwarancja.id}) }}">(pokaż)</a></td>
+</tr>

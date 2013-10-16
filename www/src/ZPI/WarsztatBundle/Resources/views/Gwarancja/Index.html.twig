@@ -1,0 +1,14 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Gwarancja{% endblock %}
+
+{% block content %}
+<h1>Lista gwarancji</h1>
+
+<table>
+{% for gwarancja in gwarancje %}
+    {% include 'WarsztatBundle:Gwarancja:Row.html.twig' %}
+{% endfor %}
+</table>
+
+{% endblock %}

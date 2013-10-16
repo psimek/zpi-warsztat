@@ -1,0 +1,58 @@
+html
+{
+    background: #fff;
+    font-family: 'URW Gothic L';
+}
+
+body
+{
+    width: 1000px;
+    margin: auto;
+    background: #eee;
+}
+
+header
+{
+    background: #ddd;
+}
+
+.content
+{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+table
+{
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+tr
+{
+    border: solid 1px #444;
+}
+
+td
+{
+    padding: 5px;
+    border-right: solid 1px #ccc;
+}
+
+td:last-child
+{
+    border-right: solid 1px #444;
+}
+
+header
+{
+    position: relative;
+}
+
+header>a
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

@@ -1,0 +1,16 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Pojazdy{% endblock %}
+
+{% block content %}
+<h1>Lista pojazdów</h1>
+
+<a href="{{ path('pojazd_new') }}">Dodaj pojazd</a>
+
+<table>
+{% for pojazd in pojazdy %}
+    {% include 'WarsztatBundle:Pojazd:Row.html.twig' %}
+{% endfor %}
+</table>
+
+{% endblock %}

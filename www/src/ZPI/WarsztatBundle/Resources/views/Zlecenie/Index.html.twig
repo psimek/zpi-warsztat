@@ -1,0 +1,12 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Zlecenia{% endblock %}
+
+{% block content %}
+<h1>Lista zleceń</h1>
+
+<a href="{{ path('zlecenie_new') }}">Dodaj zlecenie</a>
+
+{% include 'WarsztatBundle:Zlecenie:List.html.twig' %}
+
+{% endblock %}

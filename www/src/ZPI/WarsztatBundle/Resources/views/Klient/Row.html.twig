@@ -1,0 +1,7 @@
+<tr>
+    <td>{{ klient.id }}</td>
+    <td>{{ klient.imie }}</td>
+    <td>{{ klient.nazwisko }}</td>
+    <td>{{ klient.email }}</td>
+    <td><a href="{{ path('klient_details', {'id': klient.id}) }}">(pokaż)</a></td>
+</tr>

@@ -1,0 +1,16 @@
+{% extends 'WarsztatBundle:Main:Base.html.twig' %}
+
+{% block title %}Klienci{% endblock %}
+
+{% block content %}
+<h1>Lista klientów</h1>
+
+<a href="{{ path('klient_new') }}">Dodaj klienta</a>
+
+<table>
+{% for klient in klienci %}
+    {% include 'WarsztatBundle:Klient:Row.html.twig' %}
+{% endfor %}
+</table>
+
+{% endblock %}
