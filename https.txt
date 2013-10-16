@@ -1,0 +1,26 @@
+Ustawiamy HTTPS - howto
+Jakbyśmy kiedyś jednak mieli taką możliwość ;p
+
+1. Logujemy się przez SSH na serwerze na konto roota [chyba że zamiast tego dadzą jakiś control panel, wtedy minimum kroki 2-3 powinno się dać wyklikać]
+
+2. Generujemy klucz do szyfrowania, np. tak: openssl genrsa -out keyfilename.pem 2048
+[jeśli z jakiegoś dziwnego powodu nie ma openssl na serwerze, trzeba doinstalować/poprosić dostawcę, zakładam że umiemy w linuksa]
+protip: można wpisać całą ścieżkę gdzie ma być umieszczony plik z kluczem zamiast samej nazwy pliku
+
+3. Tworzymy sobie własny certyfikat bezpieczeństwa [samopodpisany, więc będzie ostrzeżenie o niezaufanym połączeniu jak przy wejściu na boarda, ale wystarczy]:
+openssl req -new -x509 -key keyfilename.pem -out certfilename.pem -days 365
+[tak, po 365 dniach trzeba generować nowy jeśli wpiszecie -days 365]
+OpenSSL będzie pytał o parę pierdół, ale że sami sobie ten certyfikat podpisujemy, to nie trzeba jakoś szczegółowo tego wypełniać
+
+4. W folderze z Apache znajdujemy plik httpd-ssl.conf [~/conf/original/extra], znajdujemy linijkę:
+SSLCertificateFile
+Jeśli jest zakomentowana, to wywalamy komentarz, zamieniamy przykładową ścieżkę na właściwą ścieżkę do wygenerowanego certyfikatu.
+Potem znajdujemy linijkę:
+SSLCertificateKeyFile
+Powtarzamy poprzednią podmianę, tylko ze ścieżką do klucza.
+
+5. W httpd.conf znajdujemy linijkę:
+#Include conf/extra/httpd-ssl.conf
+Usuwamy komentarz
+
+Działa z Apache 2.0 i wyższymi wersjami, w starszych można pominąć krok 5, ale trzeba startować serwer komendą apachectl startssl.
