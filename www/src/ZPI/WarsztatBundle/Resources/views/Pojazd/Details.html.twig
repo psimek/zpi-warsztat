@@ -13,7 +13,7 @@
 
 <h2>Zlecenia dotyczące pojazdu</h2>
 
-<a href="{{ path('zlecenie_new', {'pojazd': pojazd.id}) }}">(nowe)</a>
+<a href="{{ path('zlecenie_new', {'pojazd': pojazd.id, 'klient': zlecenia|last.klient.id|default}) }}">(nowe)</a>
 
 {% include 'WarsztatBundle:Zlecenie:List.html.twig' %}
 

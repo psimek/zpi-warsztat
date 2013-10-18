@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 
+use ZPI\WarsztatBundle\Entity\Klient;
 use ZPI\WarsztatBundle\Entity\Pojazd;
 use ZPI\WarsztatBundle\Entity\Zlecenie;
 
@@ -37,6 +38,7 @@ class ZlecenieController extends Controller
 
         if (!($id > 0 && $zlecenie = Zlecenie::getRepo($this)->find($id))) {
             $zlecenie = new Zlecenie();
+            $zlecenie->setKlient(Klient::getRepo($this)->find((int) $request->query->get('klient')));
             $zlecenie->setPojazd(Pojazd::getRepo($this)->find((int) $request->query->get('pojazd')));
         }
 
