@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 
+use ZPI\WarsztatBundle\Entity\Pojazd;
 use ZPI\WarsztatBundle\Entity\Zlecenie;
 
 class ZlecenieController extends Controller
@@ -32,16 +33,20 @@ class ZlecenieController extends Controller
     {
         $id = (int) $id;
 
-        if (!($id > 0 && $zlecenie = Zlecenie::getRepo($this)->find($id)))
+        $request = $this->getRequest();
+
+        if (!($id > 0 && $zlecenie = Zlecenie::getRepo($this)->find($id))) {
             $zlecenie = new Zlecenie();
+            $zlecenie->setPojazd(Pojazd::getRepo($this)->find((int) $request->query->get('pojazd')));
+        }
 
         $form = $this->createFormBuilder($zlecenie)
                 ->add('klient', 'entity', array('class' => 'WarsztatBundle:Klient', 'property' => 'imie'))
                 ->add('pojazd', 'entity', array('class' => 'WarsztatBundle:Pojazd', 'property' => 'nazwa'))
-                ->add('save', 'submit')
+                ->add('zapisz', 'submit')
                 ->getForm();
 
-        $form->handleRequest($this->getRequest());
+        $form->handleRequest($request);
 
         if ($form->isValid())
         {
