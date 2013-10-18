@@ -5,14 +5,10 @@
 {% block content %}
 <h1>Szczegóły klienta</h1>
 
-{% for klient in klienci %}
-    <a href="{{ path('klient_edit', {'id': klient.id}) }}">(edytuj)</a>
-{% endfor %}
+<a href="{{ path('klient_edit', {'id': klient.id}) }}">(edytuj)</a>
 
 <table>
-{% for klient in klienci %}
     {% include 'WarsztatBundle:Klient:Row.html.twig' %}
-{% endfor %}
 </table>
 
 <h2>Zlecenia wykonane dla klienta</h2>

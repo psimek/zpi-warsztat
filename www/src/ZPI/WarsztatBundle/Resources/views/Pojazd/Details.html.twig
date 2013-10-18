@@ -5,14 +5,10 @@
 {% block content %}
 <h1>Szczegóły pojazdu</h1>
 
-{% for pojazd in pojazdy %}
-    <a href="{{ path('pojazd_edit', {'id': pojazd.id}) }}">(edytuj)</a>
-{% endfor %}
+<a href="{{ path('pojazd_edit', {'id': pojazd.id}) }}">(edytuj)</a>
 
 <table>
-{% for pojazd in pojazdy %}
     {% include 'WarsztatBundle:Pojazd:Row.html.twig' %}
-{% endfor %}
 </table>
 
 <h2>Zlecenia dotyczące pojazdu</h2>

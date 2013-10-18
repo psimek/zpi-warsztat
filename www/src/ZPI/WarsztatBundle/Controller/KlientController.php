@@ -19,12 +19,12 @@ class KlientController extends Controller
 
     public function detailsAction($id)
     {
-        $klienci[] = Klient::getRepo($this)->find($id);
+        $klient = Klient::getRepo($this)->find($id);
 
-        $zlecenia = $klienci[0]->getZlecenia();
+        $zlecenia = $klient->getZlecenia();
 
-        return $klienci[0]
-             ? $this->render('WarsztatBundle:Klient:Details.html.twig', array('klienci' => $klienci, 'zlecenia' => $zlecenia))
+        return $klient
+             ? $this->render('WarsztatBundle:Klient:Details.html.twig', array('klient' => $klient, 'zlecenia' => $zlecenia))
              : new Response("Nie ma takiego klienta");
     }
 

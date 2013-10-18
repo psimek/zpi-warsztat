@@ -19,12 +19,12 @@ class PojazdController extends Controller
 
     public function detailsAction($id)
     {
-        $pojazdy[] = Pojazd::getRepo($this)->find($id);
+        $pojazd = Pojazd::getRepo($this)->find($id);
 
-        $zlecenia = $pojazdy[0]->getZlecenia();
+        $zlecenia = $pojazd->getZlecenia();
 
-        return $pojazdy[0]
-             ? $this->render('WarsztatBundle:Pojazd:Details.html.twig', array('pojazdy' => $pojazdy, 'zlecenia' => $zlecenia))
+        return $pojazd
+             ? $this->render('WarsztatBundle:Pojazd:Details.html.twig', array('pojazd' => $pojazd, 'zlecenia' => $zlecenia))
              : new Response("Nie ma takiego pojazdu");
     }
 

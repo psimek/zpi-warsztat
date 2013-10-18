@@ -5,11 +5,11 @@
 {% block content %}
 <h1>Szczegóły zlecenia</h1>
 
-{% for zlecenie in zlecenia %}
-    <a href="{{ path('zlecenie_edit', {'id': zlecenie.id}) }}">(edytuj)</a>
-{% endfor %}
+<a href="{{ path('zlecenie_edit', {'id': zlecenie.id}) }}">(edytuj)</a>
 
-{% include 'WarsztatBundle:Zlecenie:List.html.twig' %}
+<table>
+    {% include 'WarsztatBundle:Zlecenie:Row.html.twig' %}
+</table>
 
 <h2>Zadania składające się na zlecenie</h2>
 

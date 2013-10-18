@@ -19,12 +19,12 @@ class ZlecenieController extends Controller
 
     public function detailsAction($id)
     {
-        $zlecenia[] = Zlecenie::getRepo($this)->find($id);
+        $zlecenie = Zlecenie::getRepo($this)->find($id);
 
-        $zadania = $zlecenia[0]->getZadania();
+        $zadania = $zlecenie->getZadania();
 
-        return $zlecenia[0]
-             ? $this->render('WarsztatBundle:Zlecenie:Details.html.twig', array('zlecenia' => $zlecenia, 'zadania' => $zadania))
+        return $zlecenie
+             ? $this->render('WarsztatBundle:Zlecenie:Details.html.twig', array('zlecenie' => $zlecenie, 'zadania' => $zadania))
              : new Response("Nie ma takiego zlecenia");
     }
 
