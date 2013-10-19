@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 
+use ZPI\WarsztatBundle\Entity\Klient;
+use ZPI\WarsztatBundle\Entity\Pojazd;
 use ZPI\WarsztatBundle\Entity\Zlecenie;
 
 class ZlecenieController extends Controller
@@ -19,12 +21,12 @@ class ZlecenieController extends Controller
 
     public function detailsAction($id)
     {
-        $zlecenia[] = Zlecenie::getRepo($this)->find($id);
+        $zlecenie = Zlecenie::getRepo($this)->find($id);
 
-        $zadania = $zlecenia[0]->getZadania();
+        $zadania = $zlecenie->getZadania();
 
-        return $zlecenia[0]
-             ? $this->render('WarsztatBundle:Zlecenie:Details.html.twig', array('zlecenia' => $zlecenia, 'zadania' => $zadania))
+        return $zlecenie
+             ? $this->render('WarsztatBundle:Zlecenie:Details.html.twig', array('zlecenie' => $zlecenie, 'zadania' => $zadania))
              : new Response("Nie ma takiego zlecenia");
     }
 
@@ -32,16 +34,21 @@ class ZlecenieController extends Controller
     {
         $id = (int) $id;
 
-        if (!($id > 0 && $zlecenie = Zlecenie::getRepo($this)->find($id)))
+        $request = $this->getRequest();
+
+        if (!($id > 0 && $zlecenie = Zlecenie::getRepo($this)->find($id))) {
             $zlecenie = new Zlecenie();
+            $zlecenie->setKlient(Klient::getRepo($this)->find((int) $request->query->get('klient')));
+            $zlecenie->setPojazd(Pojazd::getRepo($this)->find((int) $request->query->get('pojazd')));
+        }
 
         $form = $this->createFormBuilder($zlecenie)
                 ->add('klient', 'entity', array('class' => 'WarsztatBundle:Klient', 'property' => 'imie'))
                 ->add('pojazd', 'entity', array('class' => 'WarsztatBundle:Pojazd', 'property' => 'nazwa'))
-                ->add('save', 'submit')
+                ->add('zapisz', 'submit')
                 ->getForm();
 
-        $form->handleRequest($this->getRequest());
+        $form->handleRequest($request);
 
         if ($form->isValid())
         {

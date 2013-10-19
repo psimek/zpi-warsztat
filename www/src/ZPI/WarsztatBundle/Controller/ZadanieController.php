@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 
-use ZPI\WarsztatBundle\Entity\Czesc;
 use ZPI\WarsztatBundle\Entity\Zadanie;
 
 class ZadanieController extends Controller
@@ -20,13 +19,10 @@ class ZadanieController extends Controller
 
     public function detailsAction($id)
     {
-        $zadania[] = Zadanie::getRepo($this)->find($id);
+        $zadanie = Zadanie::getRepo($this)->find($id);
 
-        $czesci = Czesc::getRepo($this)->find($id);
-        //$czesci =
-
-        return $zadania[0]
-             ? $this->render('WarsztatBundle:Zadanie:Details.html.twig', array('zadania' => $zadania, 'czesci' => $czesci))
+        return $zadanie
+             ? $this->render('WarsztatBundle:Zadanie:Details.html.twig', array('zadanie' => $zadanie, 'czesci' => array()))
              : new Response("Nie ma takiego zadania");
     }
 }

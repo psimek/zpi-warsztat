@@ -12,19 +12,19 @@ class KlientController extends Controller
 {
     public function indexAction()
     {
-        $klienci = Klient::getRepo($this)->findBy(array(), array('id'=>'asc'));
+        $klienci = Klient::getRepo($this)->findBy(array(), array('id' => 'asc'));
 
         return $this->render('WarsztatBundle:Klient:Index.html.twig', array('klienci' => $klienci));
     }
 
     public function detailsAction($id)
     {
-        $klienci[] = Klient::getRepo($this)->find($id);
+        $klient = Klient::getRepo($this)->find($id);
 
-        $zlecenia = $klienci[0]->getZlecenia();
+        $zlecenia = $klient->getZlecenia();
 
-        return $klienci[0]
-             ? $this->render('WarsztatBundle:Klient:Details.html.twig', array('klienci' => $klienci, 'zlecenia' => $zlecenia))
+        return $klient
+             ? $this->render('WarsztatBundle:Klient:Details.html.twig', array('klient' => $klient, 'zlecenia' => $zlecenia))
              : new Response("Nie ma takiego klienta");
     }
 
@@ -39,7 +39,7 @@ class KlientController extends Controller
                 ->add('imie', 'text')
                 ->add('nazwisko', 'text')
                 ->add('email', 'text')
-                ->add('save', 'submit')
+                ->add('zapisz', 'submit')
                 ->getForm();
 
         $form->handleRequest($this->getRequest());
